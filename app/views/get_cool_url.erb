@@ -1,3 +1,11 @@
 <div class="container">
-  <%= @text %>
+  <% if @text.class == Statement %>
+     <%= @text.text %>
+  <% else %>
+    <ul>
+      <% @text.each do |word| %>
+         <li><%= word.text %></li>
+      <% end %>   
+    </ul>
+  <% end %>
 </div>
