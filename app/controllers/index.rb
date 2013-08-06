@@ -7,7 +7,11 @@ end
 get '/:statement' do
   puts "[LOG] Getting /cool_url"
   puts "[LOG] Params: #{params.inspect}"
-  @text = eval(params[:statement])
+  if params[:statement].match(/Statement\..+/)
+    @text = eval(params[:statement])
+  else
+    @text = Statement.create(text: params[:statement])
+  end
   erb :get_cool_url
 end
 

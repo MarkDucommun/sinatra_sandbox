@@ -7,3 +7,7 @@
 th {
   text-align: left;
 }
+
+.field {
+  width: 500px;
+}
